@@ -3,7 +3,7 @@ import ContactListItem from '../ContactListItem/ContactListItem';
 import styles from './ContactList.module.css';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
-import { selectFilteredContacts } from '../../redux/contacts/selectors';
+import { selectFilteredContacts } from '../../redux/selectors';
 import propTypes from 'prop-types';
 
 const ContactList = () => {
@@ -16,7 +16,7 @@ const ContactList = () => {
           key={nanoid()}
           id={contact.id}
           name={contact.name}
-          number={contact.number}
+          phone={contact.phone}
         />
       ))}
     </ul>
@@ -28,7 +28,7 @@ ContactList.propTypes = {
     propTypes.shape({
       key: propTypes.string,
       name: propTypes.string.isRequired,
-      number: propTypes.string.isRequired,
+      phone: propTypes.string.isRequired,
       deleteContact: propTypes.func,
     })
   ),
